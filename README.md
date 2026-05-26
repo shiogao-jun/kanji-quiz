@@ -1,2 +1,4 @@
 # kanji-quiz
-.
+While deepening my Japanese studies for my ultimate goal of moving to Tokyo, I faced a major roadblock with existing tools. Most available Kanji apps were either hidden behind expensive paywalls or limited to passive, inefficient flashcard memorization. Recognizing this gap, I designed and implemented my own interactive quiz system from scratch. 
+
+By engineering a dynamic text-parsing algorithm that filters Onyomi (Kanji readings) and Kunyomi (native readings), I created a high-efficiency active-recall training environment tailored to my needs. This project reflects not only my technical initiative in building personalized educational software but also my relentless dedication and desperate earnestness to completely master the Japanese language for my future professional career.
