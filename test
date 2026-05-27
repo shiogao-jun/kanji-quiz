@@ -6,7 +6,7 @@ hiragana_list = [
     'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん',
     'が', 'ぎ', 'ぐ', 'げ', 'ご', 'ざ', 'じ', 'ず', 'ぜ', 'ぞ',
     'だ', 'ぢ', 'づ', 'で', 'ど', 'ば', 'び', 'ぶ', 'べ', 'ぼ',
-    'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']
+    'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ','っ', 'ゃ', 'ゅ', 'ょ']
 
 katakana_list = [
     'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ',
@@ -14,9 +14,9 @@ katakana_list = [
     'ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ',
     'マ', 'ミ', 'ム', 'メ', 'モ', 'ヤ', 'ユ', 'ヨ',
     'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ', 'ヲ', 'ン',
-    'ガ', 'ギ', 'グ', 'ゲ', 'ご', 'ザ', 'ジ', 'ズ', 'ゼ', 'ゾ',
+    'ガ', 'ギ', 'グ', 'ゲ', 'ゴ', 'ザ', 'ジ', 'ズ', 'ゼ', 'ゾ',
     'ダ', 'ヂ', 'ヅ', 'デ', 'ド', 'バ', 'ビ', 'ブ', 'ベ', 'ボ',
-    'パ', 'ピ', 'プ', 'ペ', 'ポ']
+    'パ', 'ピ', 'プ', 'ペ', 'ポ','ッ', 'ャ', 'ュ', 'ョ']
 
 kanjilist = []
 textlist = []
@@ -36,6 +36,34 @@ with open(kanjilist[order],'r',encoding='utf-8') as f:
 
 print('\n{音読み: 0, 訓読み: 1}') # 딕셔너리인척하는 무언가...ㅋㅋ
 order = int(input('\n練習したい読みの番号を入力ください:'))
+
+import random
+
+for x in range(5):
+    number = random.randint(0,len(textlist))
+    quizlist = textlist[number]
+    kanji = quizlist.split(':')[0]
+    anslist = quizlist.split(':')[1].split(',')
+    anslist[-1] = anslist[-1].split('\n')[0]
+    for x in range(len(anslist)):
+        anslist[x] = anslist[x].strip()
+        
+    ansdict = {'音':[],'訓':[]}
+
+    for ans in anslist:
+        if list(ans)[0] in katakana_list:
+            ansdict['音'].append(ans)
+
+        else:
+            ansdict['訓'].append(ans)
+
+  
+        
+    
+
+    
+    
+    
 
 
 
