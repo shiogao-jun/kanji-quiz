@@ -29,24 +29,28 @@ for lines in os.listdir():
 kanjilist.sort()
 orderdict = {value: key for key, value in dict(enumerate(kanjilist)).items()}
 print('\n'+str(orderdict))
-order = int(input('\n練習したい番号を入力ください:'))
+order = int(input('\n練習したい番号を入力してください:'))
 
 with open(kanjilist[order],'r',encoding='utf-8') as f:
     textlist = f.readlines()
 
 print('\n{音読み: 0, 訓読み: 1}') # 딕셔너리인척하는 무언가...ㅋㅋ
-order = int(input('\n練習したい読みの番号を入力ください:'))
+order = int(input('\n練習したい読みの番号を入力してください:'))
+questions = int(input('\n練習したい問題数を入力してください:'))
 
 import random
 
-for x in range(5):
-    number = random.randint(0,len(textlist))
+correct = 0
+incorrect = 0
+
+for i in range(questions):
+    number = random.randint(0,len(textlist)-1)
     quizlist = textlist[number]
-    kanji = quizlist.split(':')[0]
+    kanji = quizlist.split(':')[0].strip()
     anslist = quizlist.split(':')[1].split(',')
     anslist[-1] = anslist[-1].split('\n')[0]
-    for x in range(len(anslist)):
-        anslist[x] = anslist[x].strip()
+    for j in range(len(anslist)):
+        anslist[j] = anslist[j].strip()
         
     ansdict = {'音':[],'訓':[]}
 
@@ -58,13 +62,35 @@ for x in range(5):
             ansdict['訓'].append(ans)
 
   
-        
+    if order == 0:
+        answerlist = ansdict['音']
+        useranswer = input('\n'+kanji+'の音読みは?(カタカナで):')
+        if useranswer in answerlist:
+            correct += 1
+
+        else:
+            incorrect += 1
+
+    elif order == 1:
+        answerlist = ansdict['訓']
+        for yomi in answerlist:
+            if '（' in yomi:
+                answerlist.append(yomi.split('（')[0] + yomi.split('（')[1].split('）')[0])
+
+        useranswer = input('\n'+kanji+'の訓読みは?(ひらがなで):')
+        if useranswer in answerlist:
+            correct += 1
+
+        else:
+            incorrect += 1
+
+print(f'\n正解: {correct}')
+print(f'\n不正解: {incorrect}')
     
 
     
     
     
-
 
 
 
