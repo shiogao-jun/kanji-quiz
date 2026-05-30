@@ -11,5 +11,6 @@ All Kanji data used in this project is sourced from the official Japanese educat
 * **Dataset:**
   * `G1_kanji.txt`: 1st Grade Elementary Kanji (80 characters)
   * `G2_kanji.txt`: 2nd Grade Elementary Kanji (160 characters)
+  * `G3_kanji.txt`: 3nd Grade Elementary Kanji (200 characters)
 * **Data Format:** The `.txt` files are parsed using a specific delimiter format.
   * `Kanji : Onyomi1, Onyomi2, Kunyomi1, Kunyomi2`
